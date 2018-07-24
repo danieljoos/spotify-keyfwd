@@ -16,6 +16,9 @@ install:
 
     go get -t
 build_script:
-- cmd: go build
+- cmd: >-
+    go build
+
+    7z a spotify-keyfwd.zip %APPVEYOR_BUILD_FOLDER%\spotify-keyfwd.exe
 artifacts:
-- path: spotify-keyfwd.exe
+- path: spotify-keyfwd.zip
