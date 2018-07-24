@@ -1,0 +1,21 @@
+version: 1.0.{build}
+clone_folder: C:\gopath\src\github.com\danieljoos\spotify-keyfwd
+environment:
+  GOPATH: c:\gopath
+install:
+- cmd: >-
+    rmdir c:\go /s /q
+
+    appveyor DownloadFile https://storage.googleapis.com/golang/go1.10.1.windows-amd64.msi
+
+    msiexec /i go1.10.1.windows-amd64.msi /qn
+
+    go version
+
+    go env
+
+    go get -t
+build_script:
+- cmd: go build
+artifacts:
+- path: spotify-keyfwd.exe
